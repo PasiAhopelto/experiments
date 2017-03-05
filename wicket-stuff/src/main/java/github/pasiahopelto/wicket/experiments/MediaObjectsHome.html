@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Apache Wicket Experiments</title>
+    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:regular,bold' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Stylesheet" />
+</head>
+
+<body>
+    <h2>Single Media Object</h2>
+    <div class="media">
+        <a class="media-left" href="#">
+            <img class="media-object" src="http://placehold.it/64x64">
+        </a>
+        <div class="media-body">
+            <h4 class="media-heading">Wicket Version</h4>
+            <div wicket:id="version"></div>
+        </div>
+    </div>
+    <h2>Media Object Repeater</h2>
+    <div wicket:id="mediaObjects">
+        <div class="media">
+            <a class="media-left" href="#">
+                <img class="media-object" src="http://placehold.it/64x64">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading">Wicket Version</h4>
+                <div wicket:id="itemVersion"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
