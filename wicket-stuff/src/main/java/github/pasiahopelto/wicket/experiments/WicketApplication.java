@@ -18,6 +18,8 @@ public class WicketApplication extends WebApplication {
 		super.init();
 		BootstrapSettings settings = new BootstrapSettings();
 		Bootstrap.install(this, settings);
+		mountPage("/MediaObjects", MediaObjectsHome.class);
+		mountPage("/Carousel", CarouselHome.class);
 	}
 
 }
