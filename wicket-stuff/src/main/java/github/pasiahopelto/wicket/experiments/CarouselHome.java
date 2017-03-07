@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
+import org.apache.wicket.util.time.Duration;
 
 import com.google.common.collect.Lists;
 
@@ -18,7 +19,9 @@ public class CarouselHome extends WebPage {
 	public CarouselHome(final PageParameters parameters) {
 		super(parameters);
 		List<ICarouselImage> model = makeCarouselModel();
-		add(new Carousel("carousel", model));
+		Carousel carousel = new Carousel("carousel", model);
+		carousel.setInterval(Duration.seconds(5));
+		add(carousel);
 	}
 
 	private List<ICarouselImage> makeCarouselModel() {

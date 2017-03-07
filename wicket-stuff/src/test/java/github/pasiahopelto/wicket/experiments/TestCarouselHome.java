@@ -8,6 +8,8 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import de.agilecoders.wicket.core.markup.html.bootstrap.carousel.Carousel;
 
+import static org.junit.Assert.*;
+
 @RunWith(MockitoJUnitRunner.class)
 public class TestCarouselHome {
 	private WicketTester tester;
@@ -15,13 +17,19 @@ public class TestCarouselHome {
 	@Before
 	public void setUp() {
 		tester = new WicketTester(new WicketApplication());
+		tester.startPage(CarouselHome.class);
 	}
 
 	@Test
 	public void homepageRendersSuccessfully() {
-		tester.startPage(CarouselHome.class);
 		tester.assertRenderedPage(CarouselHome.class);
 		tester.assertComponent("carousel", Carousel.class);
+	}
+	
+	@Test
+	public void carouselIntervalIsFiveSeconds() {
+		Carousel carousel = (Carousel) tester.getComponentFromLastRenderedPage("carousel");
+		assertEquals(5000, carousel.getInterval().getMilliseconds());
 	}
 
 }
