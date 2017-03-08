@@ -23,7 +23,7 @@ public class TestCarouselHome {
 	@Test
 	public void homepageRendersSuccessfully() {
 		tester.assertRenderedPage(CarouselHome.class);
-		tester.assertComponent("carousel", Carousel.class);
+		tester.assertComponent("carousel", LinkingCarousel.class);
 	}
 	
 	@Test

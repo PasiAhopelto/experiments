@@ -19,7 +19,7 @@ public class CarouselHome extends WebPage {
 	public CarouselHome(final PageParameters parameters) {
 		super(parameters);
 		List<ICarouselImage> model = makeCarouselModel();
-		Carousel carousel = new Carousel("carousel", model);
+		Carousel carousel = new LinkingCarousel("carousel", model);
 		carousel.setInterval(Duration.seconds(5));
 		add(carousel);
 	}
