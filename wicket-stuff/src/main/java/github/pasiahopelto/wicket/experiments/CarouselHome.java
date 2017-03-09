@@ -27,9 +27,9 @@ public class CarouselHome extends WebPage {
 	private List<ICarouselImage> makeCarouselModel() {
 		List<ICarouselImage> result = Lists.newArrayList();
 		result.addAll(Lists.newArrayList(
-				new CarouselImage("http://placehold.it/350x250", "1st image", "Just a random image, first in series."),
-				new CarouselImage("http://placehold.it/350x250", "2nd image", "Just a random image, second in series."), 
-				new CarouselImage("http://placehold.it/350x250", "3rd image", "Just a random image, third in series.")));
+				new CarouselImage("http://placehold.it/2000x500", "1st image", "Just a random image, first in series."),
+				new CarouselImage("http://placehold.it/2000x500", "2nd image", "Just a random image, second in series."), 
+				new CarouselImage("http://placehold.it/2000x500", "3rd image", "Just a random image, third in series.")));
 		return result;
 	}
 

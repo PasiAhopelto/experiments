@@ -66,3 +66,13 @@ h3 {
 	font-size:24pt;
 	color:#092E67;
 }
+.carousel-inner > .item > img {
+    margin: 0 auto;
+    cursor: pointer;
+}
+.carousel-control.right,
+.carousel-control.left {
+    padding-top: 60px;
+    width: 10%;
+    background-image: none;
+}
