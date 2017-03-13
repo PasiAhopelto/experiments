@@ -1,6 +1,7 @@
 package github.pasiahopelto.wicket.experiments;
 
-import org.apache.wicket.markup.html.link.ExternalLink;
+import org.apache.wicket.ajax.markup.html.AjaxLink;
+import org.apache.wicket.model.Model;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,12 +21,14 @@ public class TestLinkingCarousel {
 	@Before
 	public void before() {
 		new WicketTester();
-		linkingCarousel = new LinkingCarousel("id", null);
+		linkingCarousel = new LinkingCarousel("id", null, new Model<>(""));
 	}
 	
 	@Test
-	public void newImageIsExternalLink() {
-		assertTrue(linkingCarousel.newImage("image", mock(ICarouselImage.class)) instanceof ExternalLink);
+	public void newImageIsAjaxLink() {
+		assertTrue(linkingCarousel.newImage("image", mock(ICarouselImage.class)) instanceof AjaxLink);
 	}
+	
+	// TODO test onClick
 	
 }

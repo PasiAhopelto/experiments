@@ -3,6 +3,8 @@ package github.pasiahopelto.wicket.experiments;
 import java.util.List;
 
 import org.apache.wicket.markup.html.WebPage;
+import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.util.time.Duration;
 
@@ -19,7 +21,19 @@ public class CarouselHome extends WebPage {
 	public CarouselHome(final PageParameters parameters) {
 		super(parameters);
 		List<ICarouselImage> model = makeCarouselModel();
-		Carousel carousel = new LinkingCarousel("carousel", model);
+		Model<String> selectionModel = new Model<>("<none>");
+		addCarousel(model, selectionModel);
+		addSelectionLabel(selectionModel);
+	}
+
+	private void addSelectionLabel(Model<String> selectionModel) {
+		Label label = new Label("selection", selectionModel);
+		label.setOutputMarkupId(true);
+		add(label);
+	}
+
+	private void addCarousel(List<ICarouselImage> model, Model<String> selectionModel) {
+		Carousel carousel = new LinkingCarousel("carousel", model, selectionModel);
 		carousel.setInterval(Duration.seconds(5));
 		add(carousel);
 	}
