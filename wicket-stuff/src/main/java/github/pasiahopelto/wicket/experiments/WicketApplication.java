@@ -20,6 +20,7 @@ public class WicketApplication extends WebApplication {
 		Bootstrap.install(this, settings);
 		mountPage("/MediaObjects", MediaObjectsHome.class);
 		mountPage("/Carousel", CarouselHome.class);
+		mountPage("/Grid", GridHome.class);
 	}
 
 }
