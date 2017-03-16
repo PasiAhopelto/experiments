@@ -21,6 +21,7 @@ public class WicketApplication extends WebApplication {
 		mountPage("/MediaObjects", MediaObjectsHome.class);
 		mountPage("/Carousel", CarouselHome.class);
 		mountPage("/Grid", GridHome.class);
+		mountPage("/BlockElements", BlockElementsHome.class);
 	}
 
 }
