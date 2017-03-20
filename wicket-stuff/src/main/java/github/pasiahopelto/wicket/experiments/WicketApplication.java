@@ -22,6 +22,7 @@ public class WicketApplication extends WebApplication {
 		mountPage("/Carousel", CarouselHome.class);
 		mountPage("/Grid", GridHome.class);
 		mountPage("/BlockElements", BlockElementsHome.class);
+		mountPage("/SimpleForm", SimpleFormPage.class);
 	}
 
 }

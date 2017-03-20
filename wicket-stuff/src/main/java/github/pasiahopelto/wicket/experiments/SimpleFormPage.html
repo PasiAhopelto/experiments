@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Apache Wicket Experiments</title>
+    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:regular,bold' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Stylesheet" />
+</head>
+
+<body>
+    <form class="form" wicket:id="dateForm">
+        <div class="form-group">
+            <label wicket:id="dateRangeLabel"></label>
+            <input type="date" wicket:id="startDate">
+            <input type="text" wicket:id="days">
+            <input type="submit" wicket:id="submitDates">
+        </div>
+    </form>
+</body>
+
+</html>
