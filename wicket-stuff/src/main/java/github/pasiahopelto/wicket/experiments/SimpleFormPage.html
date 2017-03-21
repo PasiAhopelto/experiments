@@ -12,9 +12,20 @@
     <form class="form" wicket:id="dateForm">
         <div class="form-group">
             <label wicket:id="dateRangeLabel"></label>
-            <input type="date" wicket:id="startDate">
-            <input type="text" wicket:id="days">
-            <input type="submit" wicket:id="submitDates">
+            <div class="container">
+                <div class="col-xs-6 col-md-6">
+                    <input type="date" wicket:id="startDate">
+                </div>
+                <div class="col-xs-6 col-md-6">
+                    <span wicket:id="dateValidationError"></span>
+                </div>
+                <div class="col-xs-12 col-md-12">
+                    <input type="text" wicket:id="days">
+                </div>
+                <div class="col-xs-12 col-md-12">
+                    <input type="submit" wicket:id="submitDates">
+                </div>
+            </div>
         </div>
     </form>
 </body>
