@@ -17,6 +17,7 @@ import org.apache.wicket.model.PropertyModel;
 public class SimpleFormPage extends WebPage {
 
 	private static final long serialVersionUID = 1L;
+	public static final String DATE_FORMAT = "yyyy-MM-dd";
 
 	public SimpleFormPage() {
 		IModel<DateFormData> model = new Model<>(new DateFormData());
@@ -26,12 +27,14 @@ public class SimpleFormPage extends WebPage {
 	private Form<DateFormData> makeForm(IModel<DateFormData> model) {
 		Form<DateFormData> form = new Form<>("dateForm", model);
 		form.add(new Label("dateRangeLabel", "Form with Date and Numeric Text Fields"));
-		DateTextField dateTextField = new DateTextField("startDate", new PropertyModel<Date>(model, "startDate"), "yyyy-MM-dd");
+		DateTextField dateTextField = new DateTextField("startDate", new PropertyModel<Date>(model, "startDate"), DATE_FORMAT);
 		dateTextField.add(new DateIsInFutureValidator());
 		form.add(dateTextField);
 		form.add(new FeedbackPanel("dateValidationError", new ComponentFeedbackMessageFilter(dateTextField)));
 		form.add(new TextField<Integer>("days", new PropertyModel<Integer>(model, "days")));
 		form.add(new SubmitLink("submitDates", model));
+		form.add(new CrossMonthFormValidator(form));
+		form.add(new FeedbackPanel("formValidationError", new ComponentFeedbackMessageFilter(form)));
 		return form;
 	}
 	
