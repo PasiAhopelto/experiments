@@ -13,6 +13,7 @@ import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.validation.validator.RangeValidator;
 
 public class SimpleFormPage extends WebPage {
 
@@ -22,6 +23,7 @@ public class SimpleFormPage extends WebPage {
 	public SimpleFormPage() {
 		IModel<DateFormData> model = new Model<>(new DateFormData());
 		add(makeForm(model));
+		add(new Label("dateRange", new DateRangeModel(model)));
 	}
 
 	private Form<DateFormData> makeForm(IModel<DateFormData> model) {
@@ -29,9 +31,14 @@ public class SimpleFormPage extends WebPage {
 		form.add(new Label("dateRangeLabel", "Form with Date and Numeric Text Fields"));
 		DateTextField dateTextField = new DateTextField("startDate", new PropertyModel<Date>(model, "startDate"), DATE_FORMAT);
 		dateTextField.add(new DateIsInFutureValidator());
+		dateTextField.setRequired(true);
 		form.add(dateTextField);
 		form.add(new FeedbackPanel("dateValidationError", new ComponentFeedbackMessageFilter(dateTextField)));
-		form.add(new TextField<Integer>("days", new PropertyModel<Integer>(model, "days")));
+		TextField<Integer> daysField = new TextField<Integer>("days", new PropertyModel<Integer>(model, "days"));
+		daysField.add(RangeValidator.minimum(1));
+		daysField.setRequired(true);
+		form.add(daysField);
+		form.add(new FeedbackPanel("daysValidationError", new ComponentFeedbackMessageFilter(daysField)));
 		form.add(new SubmitLink("submitDates", model));
 		form.add(new CrossMonthFormValidator(form));
 		form.add(new FeedbackPanel("formValidationError", new ComponentFeedbackMessageFilter(form)));
