@@ -28,7 +28,6 @@ public class SimpleFormPage extends WebPage {
 
 	private Form<DateFormData> makeForm(IModel<DateFormData> model) {
 		Form<DateFormData> form = new Form<>("dateForm", model);
-		form.add(new Label("dateRangeLabel", "Form with Date and Numeric Text Fields"));
 		DateTextField dateTextField = new DateTextField("startDate", new PropertyModel<Date>(model, "startDate"), DATE_FORMAT);
 		dateTextField.add(new DateIsInFutureValidator());
 		dateTextField.setRequired(true);

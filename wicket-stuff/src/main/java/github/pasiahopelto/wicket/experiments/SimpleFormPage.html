@@ -10,26 +10,33 @@
 
 <body>
     <form class="form" wicket:id="dateForm">
-        <label wicket:id="dateRangeLabel"></label>
-        <div class="form-group">
-            <div class="container">
-                <div class="col-xs-6 col-md-6">
+        <jumbotron>
+            <h1 class="display-2">Form with Date and Numeric Text Fields</h1>
+            <p class="lead">Form with component and form level validation and a model that is shared between form and external component.</p>
+        </jumbotron>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
                     <input type="date" wicket:id="startDate">
                 </div>
-                <div class="col-xs-6 col-md-6">
-                    <div wicket:id="dateValidationError"></div>
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <span wicket:id="dateValidationError"></span>
                 </div>
-                <div class="col-xs-6 col-md-6">
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
                     <input type="text" wicket:id="days">
                 </div>
-                <div class="col-xs-6 col-md-6">
-                    <div wicket:id="daysValidationError"></div>
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <span wicket:id="daysValidationError"></span>
                 </div>
-                <div class="col-xs-6 col-md-6">
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
                     <input type="submit" wicket:id="submitDates">
                 </div>
-                <div class="col-xs-6 col-md-6">
-                    <div wicket:id="formValidationError"></div>
+                <div class="col-sm-6 col-md-6" col-lg-6 col-xl-6>
+                    <span wicket:id="formValidationError"></span>
                 </div>
             </div>
         </div>
